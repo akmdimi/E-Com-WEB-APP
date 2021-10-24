@@ -83,7 +83,7 @@ exports.signup = (req, res) => {
 
   //custom middlewares
   exports.isAuthenticated = (req, res, next) =>{
-    let checker = req.profile && req.auth && req.profile._id === req.auth._id
+    let checker = req.profile && req.auth && req.profile._id == req.auth._id
     if(!checker){
       return res.status(403).json({
         error: "ACCESS DENIED"
@@ -100,3 +100,4 @@ exports.signup = (req, res) => {
     }
     next()
   }
+  
